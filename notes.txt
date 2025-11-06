@@ -1,0 +1,45 @@
+TODO: Creating a API movie project and will be pulling the information from SQL and using POSTMAN
+TODO: Make sure you install packages: express, axios, mysql2, ejs, helmet, cors
+TODO: make sure you have your required endpoints: actor, director, genre, movie, production and streaming_platform
+TODO: When using POSTMAN, you will ONLY be using GET for now. POST will be later
+TODO: make sure each endpoint(folders) will have 4 requests: findAll, findById, sor, and create your own~!
+!: EJS is not needed to be used at this time
+***************************************************************
+
+!: This will be a step by step guide on what we need to do to create what needs to be done
+?: Which info are we pulling? We are going to be pulling movie information that we previously created
+
+!:First Step: Run your command for initalizing json packages
+npm init -y
+
+! Second step: Create your .gitignore file. Make sure to add the information in the file below
+node_modules/
+*-lock.json
+
+! Third: We are going to have to install our packages. For this project, we are going to install the following:
+npm i express axios mysql2 helmet cors ejs
+* Make sure you spell everything correctly or you could be installing a possible virus or malware onto your code!
+
+? After we do that, lets go ahead and create some folders. 
+    -First, lets create a "ROUTES" folder. 
+    -Inside of that routes folder, make a router.js file. 
+    ! Create a server.js file outside of the folders. (Can be called index.js or app.js)
+
+? Once you have finished creating your folders, go to your package.json file and lets go and edit some information:
+    TODO - Look for "main" and make sure you change it to server.js (or if you named it index.js or app.js)    
+    TODO - In the "SCRIPTS" section at the end, put a comma at the end of the 1 and then add these as follows:
+        "start": "node server.js",
+        "dev": "nodemon server.js"
+        ! - if you named it something else, make sure it matches everywhere so these would have to say the same as your file
+    TODO - Next, you can go to the author section and add yourself as an author. Everything else can be left alone. 
+? Once you have completed that, it is time to create our first pages!!
+
+
+! First, go to server.js and we are going to start our server.
+    TODO - Follow Steps One and Two
+        ? - Whenever you are creating your server.js (app.js or index.js) Step 1 and Step 2 are the first ones you have to create as that is the building block of your server. 
+        * - You can check to make sure that your server is running by going to your terminal and typing in `npm run dev`
+        * - If you are able to see your console.log that you created showing up in your terminalthen that let's you know that your terminal is reading and listening to the port that you have created.
+    TODO Go ahead and upload to Github and that is your first saving point after step 1 and 2 !  
+! Next, we are going to add our security files to kind of keep our webpage safe
+    ? That means, you would need to have to add helmet and cors code to your server.js documentation. Follow step 3 instructions    
