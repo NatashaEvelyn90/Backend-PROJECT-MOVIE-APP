@@ -40,6 +40,10 @@ npm i express axios mysql2 helmet cors ejs
         ? - Whenever you are creating your server.js (app.js or index.js) Step 1 and Step 2 are the first ones you have to create as that is the building block of your server. 
         * - You can check to make sure that your server is running by going to your terminal and typing in `npm run dev`
         * - If you are able to see your console.log that you created showing up in your terminalthen that let's you know that your terminal is reading and listening to the port that you have created.
-    TODO Go ahead and upload to Github and that is your first saving point after step 1 and 2 !  
+    TODO - Go ahead and upload to Github and that is your first saving point after step 1 and 2 !  
 ! Next, we are going to add our security files to kind of keep our webpage safe
     ? That means, you would need to have to add helmet and cors code to your server.js documentation. Follow step 3 instructions    
+
+! After creating the security with cors and helmet, we have to create a connection to our database (our SQL database). However, we do not want to expose our password that we had created for SQL. So we are going to have to create a folder to keep our information in
+    TODO - Create a "CONFIG" folder and then inside that folder create a dbconfig.js file
+        * - go to .gitignore and put "config/dbconfig.js" into the file on a separate line. The reason the gitignore file exists is that when you upload this file to github, people won't be able to read those particular files. ONLY YOU will be able to read them.
