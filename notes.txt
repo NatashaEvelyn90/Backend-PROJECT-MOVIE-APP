@@ -88,3 +88,5 @@ TODO: make sure each endpoint(folders) will have 4 requests: findAll, findById, 
     * - The code in the daoCommon is a bit long and it has repeating options in it. We CAN shorten the code and that is what we will do next
     TODO - To do that, what we have to do is create a folder called "helpers". In there we are going to create a file called "queryAction.js". Basically what we are going to do is put the code we have typed up already in there but create like a "code word" and that is what we will use in it's place instead. 
          - Our code word that we are using is queryAction. So instead of typing the long code we did earlier, all we have to do is just type queryAction and then boom, our code will still run. Just take a look at what I have done in the file. 
+
+! Create a file called app.rest(app_requests.rest is fine as well) and in there what we are going to do is put our GET requests in there. You can do all sorts of things like GET, PUT, POST and PUSH. However, what we will be using is POSTMAN to actually do all of that. What we are going to do in here is just store our links that we will need.         

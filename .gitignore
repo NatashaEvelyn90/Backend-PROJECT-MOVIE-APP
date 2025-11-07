@@ -1,4 +1,5 @@
 node_modules/
 *-lock.json
 config/dbconfig.js
-notes.txt
+*.txt
+*.rest
