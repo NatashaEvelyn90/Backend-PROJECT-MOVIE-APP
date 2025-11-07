@@ -61,3 +61,23 @@ TODO: make sure each endpoint(folders) will have 4 requests: findAll, findById, 
     Once you refresh the page, it should show a link!!! It should show what you have created!!! WELL DONE! If you click on it, it won't work and it will bring you to your error page. GOOD WORK! 
         TODO: Go ahead and push your work to Github so that it is saved
 
+! Next we are going to be building a network of Data Access Objects also known as DAOs. This will help our database we built (SQL) talk with our website we are trying to build. 
+    TODO - So we are going to have to build a folder called "daos". 
+    TODO - Inside the daos folder, create a file called daoCommon.js. This is going to be a file that handles most of the leg work for us. Not necessarly a helper file but a main component that will link our SQL database file to our project. 
+
+! After creating your findAll within your daoCommon.js file, go ahead and create another folder within your daos folder called "common" and move your daoCommons.js file into it. Allow it to move and if it asks to update anything, say yes. 
+
+! Next, create ANOTHER folder within the daos folder called "api". Once you finish doing that, create a file called movieDao.js and add that to the api folder.
+
+! Finally, create a dao.js file that sits freely in the daos folder. (it does not sit in the api or the common folder in the daos community)
+    *Each of the files has a common goal or reason on what they have to do. For example:
+        ? daoCommon.js = A file we created that has general code. It is to be used to help ALL tables and not just a specific one. Kind of like Public wifi that everyone can use. 
+
+        ? movieDao.js = This file is strictly only for the movie table we created back in SQL. Any information we type up is only for dealing with this table. So if we need to change or update something in here, it will ONLY affect this table. Consider this private wifi.
+            ! You will have multiple files in this category for your other tables
+    
+        ? dao.js = This is the file that is supposed to link the tables and information together. All the daos will be meeting here. the main hubspot.
+    
+! After writing code in your dao.js file, create a api folder inside your routes folder. Inside that api folder, create a movieRoutes.js file. Follow the instructions in there.
+    TODO - CONGRATS! YOU REACHED A CHECKPOINT! UPLOAD TO GITHUB!
+    
