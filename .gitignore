@@ -1,4 +1,3 @@
 node_modules/
 *-lock.json
 config/dbconfig.js
-git rm --cached notes.txt
