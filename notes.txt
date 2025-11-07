@@ -6,7 +6,7 @@ TODO: make sure each endpoint(folders) will have 4 requests: findAll, findById, 
 !: EJS is not needed to be used at this time
 ***************************************************************
 
-!: This will be a step by step guide on what we need to do to create what needs to be done
+!: This will be a step by step guide on what we need to do to create what needs to be done. There will also be notes in each of the files that you have built with even more information on what needs to be done there. So if you don't see it here, check there.
 ?: Which info are we pulling? We are going to be pulling movie information that we previously created from a database in SQL. 
 
 !:First Step: Run your command for initalizing json packages
@@ -79,5 +79,12 @@ TODO: make sure each endpoint(folders) will have 4 requests: findAll, findById, 
         ? dao.js = This is the file that is supposed to link the tables and information together. All the daos will be meeting here. the main hubspot.
     
 ! After writing code in your dao.js file, create a api folder inside your routes folder. Inside that api folder, create a movieRoutes.js file. Follow the instructions in there.
-    TODO - CONGRATS! YOU REACHED A CHECKPOINT! UPLOAD TO GITHUB!
-    
+    TODO - CONGRATS! YOU REACHED A CHECKPOINT! UPLOAD TO GITHUB! Also, refresh your page, click on your link and your information SHOULD generate. 
+
+
+* So while we are going through all of these, there are going to be a multitude of files that we will be creating. Just like all the tables in our SQL document (actor, director, genre, move and production), they will all have their own individual files (both routes and daos). THUS! All individual daos will end up meeting in dao.js and all the individual routes will end up meeting in router.js. You have to make sure to link all of them.
+
+! Now our next job is to see if we can get it to just show its id number and add a sorting mechanic. To do that, we are going to be adding on in our daoCommon.js file and we will be adding a "findById" and "Sort" section. Once you finish adding those, you will the go back to your movieRoutes file and add your updated links.
+    * - The code in the daoCommon is a bit long and it has repeating options in it. We CAN shorten the code and that is what we will do next
+    TODO - To do that, what we have to do is create a folder called "helpers". In there we are going to create a file called "queryAction.js". Basically what we are going to do is put the code we have typed up already in there but create like a "code word" and that is what we will use in it's place instead. 
+         - Our code word that we are using is queryAction. So instead of typing the long code we did earlier, all we have to do is just type queryAction and then boom, our code will still run. Just take a look at what I have done in the file. 

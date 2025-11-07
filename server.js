@@ -31,6 +31,7 @@ server.use(express.json())
 server.use(express.urlencoded({ extended: true}))
 
 //TODO STEP 4.1 Make sure to add this as well
+//? localhost:8064 starting hub. This is stating to use the router.js file
 server.use('/', router)
 
 //TODO STEP 2, the server must listen to the PORT we created!
