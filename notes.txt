@@ -90,3 +90,6 @@ TODO: make sure each endpoint(folders) will have 4 requests: findAll, findById, 
          - Our code word that we are using is queryAction. So instead of typing the long code we did earlier, all we have to do is just type queryAction and then boom, our code will still run. Just take a look at what I have done in the file. 
 
 ! Create a file called app.rest(app_requests.rest is fine as well) and in there what we are going to do is put our GET requests in there. You can do all sorts of things like GET, PUT, POST and PUSH. However, what we will be using is POSTMAN to actually do all of that. What we are going to do in here is just store our links that we will need.         
+
+! Next, going to the movieDao.js file, you will be using your SQL experience for this part. (My experience is VERY limited thus I need to stuy some more but follow the instructions within there!) Make sure you update your movieRoutes.js file once you finish your movieDao.js file.
+

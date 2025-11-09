@@ -7,7 +7,8 @@ const {movieDao: dao} = require('../../daos/dao')
 
 //? http://localhost:8064/api/movie 
 router.get('/', (req, res)=> {
-    dao.findAll(req, res, dao.table) //* Translation: movie.findAll requesting a response of the movie table. 
+    dao.findMovieInfo(res, dao.table) //! Updated and using from movieDao.js
+    // dao.findAll(req, res, dao.table) //* Translation: movie.findAll requesting a response of the movie table. 
 })
 //? http://localhost:8064/api/movie/sort you can sort like title, runtime, yr_released and such.
 router.get('/sort/:sorter', (req, res)=> {
