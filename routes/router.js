@@ -11,7 +11,7 @@ router.get('/api', (req, res)=> {
     // res.send('Movie api')
 
     res.json({
-        //! best to name the link after what the name of the table you have. In this case, we are starting with the "MOVIE" table.
+        //! best to name the link after what the name of the table you have. In this case, we are starting with the "MOVIE" table and then work our way down to the others.
         'All Movies': `http://localhost:${PORT}/api/movie`, 
         'All Directors': `http://localhost:${PORT}/api/director`,
         'All Actors': `http://localhost:${PORT}/api/actor`,

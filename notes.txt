@@ -78,7 +78,7 @@ TODO: make sure each endpoint(folders) will have 4 requests: findAll, findById, 
     
         ? dao.js = This is the file that is supposed to link the tables and information together. All the daos will be meeting here. the main hubspot.
     
-! After writing code in your dao.js file, create a api folder inside your routes folder. Inside that api folder, create a movieRoutes.js file. Follow the instructions in there.
+! After writing code in your dao.js file, create a api folder inside your routes folder. Inside that api folder, create a movieRoutes.js file. We are basically going to be linking the movieRoutes and the movieDao file together. (Follow the instructions in the movieRoutes.js file.)
     TODO - CONGRATS! YOU REACHED A CHECKPOINT! UPLOAD TO GITHUB! Also, refresh your page, click on your link and your information SHOULD generate. 
 
 
@@ -87,9 +87,14 @@ TODO: make sure each endpoint(folders) will have 4 requests: findAll, findById, 
 ! Now our next job is to see if we can get it to just show its id number and add a sorting mechanic. To do that, we are going to be adding on in our daoCommon.js file and we will be adding a "findById" and "Sort" section. Once you finish adding those, you will the go back to your movieRoutes file and add your updated links.
     * - The code in the daoCommon is a bit long and it has repeating options in it. We CAN shorten the code and that is what we will do next
     TODO - To do that, what we have to do is create a folder called "helpers". In there we are going to create a file called "queryAction.js". Basically what we are going to do is put the code we have typed up already in there but create like a "code word" and that is what we will use in it's place instead. 
-         - Our code word that we are using is queryAction. So instead of typing the long code we did earlier, all we have to do is just type queryAction and then boom, our code will still run. Just take a look at what I have done in the file. 
+         - Our code word that we are using is queryAction. So instead of typing the long code we did earlier, all we have to do is just type queryAction and then boom, our code will still run. Just take a look at what I have done in the file. I kept the old notes as well as updated to the new ones.
 
 ! Create a file called app.rest(app_requests.rest is fine as well) and in there what we are going to do is put our GET requests in there. You can do all sorts of things like GET, PUT, POST and PUSH. However, what we will be using is POSTMAN to actually do all of that. What we are going to do in here is just store our links that we will need.         
 
-! Next, going to the movieDao.js file, you will be using your SQL experience for this part. (My experience is VERY limited thus I need to stuy some more but follow the instructions within there!) Make sure you update your movieRoutes.js file once you finish your movieDao.js file.
+! Next, going to the movieDao.js file, you will be using your SQL experience for this part. (My experience is VERY limited thus I need to study some more but follow the instructions within there!) Make sure you update your movieRoutes.js file once you finish your movieDao.js file.
+    TODO - So basically the order you want to set up is:
+        - create a routes file where you will be storing all your links
+        - create a Dao file to where you will pull and put together your table information using SQL codes
+        - Update the dao.js file so that it can be linked *REMEMBER HUB!*
+
 
