@@ -19,10 +19,12 @@ const movieDao = {
                 m.movie_id, m.title, m.rating,
                 m.runtime, m.nationality, m.yr_released, 
                 m.budget, m.gross, m.production_id, 
-                m.showing, m.poster, g.genre_id, g.genre 
+                m.showing, m.poster,  
+                GROUP_CONCAT(g.genre SEPARATOR ', ') AS genres               
             FROM movie m 
-            JOIN movie_to_genre USING (movie_id)  
-            JOIN genre g USING (genre_id) 
+            LEFT JOIN movie_to_genre mg ON m.movie_id = mg.movie_id
+            LEFT JOIN genre g ON mg.genre_id = g.genre_id
+            GROUP BY m.movie_id
             ORDER BY m.movie_id;`;
             
         con.execute(sql, (err, rows)=> {
@@ -55,19 +57,16 @@ const movieDao = {
         })
     },
 
-
-    //? This method finds a single movie by its unique ID.
-    //? Example route: /api/movie/5
-    //? The question mark (?) is a placeholder that safely inserts the movie ID using an array value.
     findById: (res, table, id) => {
         const sql = `
-            SELECT
+            SELECT 
                 m.*,
-                g.genre
+                GROUP_CONCAT(g.genre SEPARATOR ', ') AS genres
             FROM movie m
-            JOIN movie_to_genre USING (movie_id)    
-            JOIN genre g USING (genre_id
-            WHERE module.movie_id = ?;`
+            LEFT JOIN movie_to_genre mg USING (movie_id)
+            LEFT JOIN genre g ON mg.genre_id = g.genre_id
+            WHERE m.movie_id = ?
+            GROUP BY m.movie_id;`
 
         con.execute(sql, [id], (err, rows) => {
             queryAction(res, err, rows, table)
@@ -85,13 +84,17 @@ module.exports = movieDao
         //     m.movie_id, m.title, m.rating, //? WE
         //     m.runtime, m.nationality, m.yr_released, //? ARE
         //     m.budget, m.gross, m.production_id, //? THE
-        //     m.showing, m.poster, g.genre_id, g.genre //? DATA!
-        // FROM movie m //! FROM the movie table (but I am also giving it a alias/nickname called "m" so now forth table wil be called m)
-        // JOIN movie_to_genre USING (movie_id) //! I want to JOIN the movie_to_genre data USING the movie_id data. This is a bridge that connects the movies to the genres.
-        // JOIN genre g USING (genre_id) //! I want to JOIN the genre table ( NEW alias: g) USING the genre_id data. I want to make sure the genres are listed.
+        //     m.showing, m.poster, //? DATA!
+        //     GROUP_CONCAT(g.genre SEPARATOR ', ') AS genres //! Group the genre table as genres, separated by comas on a straight row. GROUP_CONCAT cannot be changed as that is a mySQL code
+        // FROM movie m //! FROM the movie table (but I am also giving it a alias/nickname called "m" so now table wil be called m)
+        // LEFT JOIN movie_to_genre mg ON m.movie_id = mg.movie_id //! LEFT JOIN(show all the movies listed) movie_to_genre mg(alias) ON(joining things together) m.movie_id = mg.movie_id. Basically should show all the movies even if it is missng a genre
+        // LEFT JOIN genre g ON mg.genre_id = g.genre_id
+        // GROUP BY m.movie_id
         // ORDER BY m.movie_id;` //! We are keeping everything in order by the movie_id number. SO it should count from 1 till whatever.;
+        
+// #endregion
 
-    //* ABOUT EACH SECTION
+//? ABOUT EACH SECTION
     
         //! findALL 
     // #region
@@ -107,12 +110,28 @@ module.exports = movieDao
         //? sorts allows you to sort based on the column you choose — like title, runtime, or year released. So whenever you type the URL it would be something like so (example: /api/movie/sort/title). *title is the sorter
         //? ORDER BY will keep it in whatever order it will be sorted by. 
 
+    //     sort: (res, table, sorter) => { 
+    //     const sql = `SELECT * FROM ${table} ORDER BY ${sorter};` //* SELECT (all*) FROM the ${Movie table}. Make sure to ORDER it BY ${title, runtime, etc}
+
+    //     con.execute(sql, (err, rows)=> { //* con = auto login to SQL, .execute(sql)= run the code I worte. (err, rows)= show me if something went wrong, give me the results.
+    //         queryAction(res, err, rows, table) //* Displays our helper file
+    //     })
+    // },
+
     // #endregion 
 
         //! findByGenre 
-
+    // #region
+    
         //? findByGenre finds all movies that match a specific genre.
-        //? The genre_id is passed through the URL (example: /api/movie/genre/3).
-        //? It joins the movie, movie_to_genre, and genre tables to filter results  properly.
+        //? You can search by the genre category OR by the genre_id (example: /api/movie/genre/3 OR /api/movie/genre/comedy).
 
-        // #endregion
+    // #endregion
+
+        //! findById
+    // #region 
+
+        //? findById uses a single movie by its unique ID. (Example route: /api/movie/5)
+        //? The question mark (?) is a placeholder that safely inserts the movie ID using an array value.
+
+    // #endregion 

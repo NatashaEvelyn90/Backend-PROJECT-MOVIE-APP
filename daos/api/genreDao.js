@@ -34,7 +34,8 @@ const genreDao = {
     },
 
     findById: (res, table, id) => {
-        const sql = `SELECT * FROM ${table} WHERE ${table}_id = ?;`
+        const sql = `
+        SELECT * FROM ${table} WHERE ${table}_id = ?;`
 
         con.execute(sql, [id], (err, rows) => {
                 queryAction(res, err, rows, table)

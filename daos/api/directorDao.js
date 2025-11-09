@@ -7,9 +7,9 @@ const directorDao = {
     table: 'director',
 
     findAll: (res, table)=> {
-        con.execute(`SELECT * FROM ${table}`, (err, rows) =>
-        queryAction(res, err, rows, table)
-        );
+        con.execute(`SELECT * FROM ${table}`, (err, rows) => {
+            queryAction(res, err, rows, table)
+        });
     },
     
     findDirectorMovies:(res, table, id)=> {
@@ -20,21 +20,21 @@ const directorDao = {
         JOIN ${table} d USING (${table}_id)
         WHERE d.${table}_id = ?;`;
 
-    con.execute(sql, [id], (err, rows) =>
-        queryAction(res, err, rows, table)
-        );
+    con.execute(sql, [id], (err, rows) => {
+            queryAction(res, err, rows, table)
+        });
     },
 
     sort:(res, table, sorter)=> {
-    con.execute(`SELECT * FROM ${table} ORDER BY ${sorter}`, (err, rows) =>
-        queryAction(res, err, rows, table)
-        );
+        con.execute(`SELECT * FROM ${table} ORDER BY ${sorter}`, (err, rows) => {
+            queryAction(res, err, rows, table)
+        });
     },
 
     findById:(res, table, id)=> {
-    con.execute(`SELECT * FROM ${table} WHERE ${table}_id = ?`, [id], (err, rows) =>
-        queryAction(res, err, rows, table)
-        );
+        con.execute(`SELECT * FROM ${table} WHERE ${table}_id = ?`, [id], (err, rows) =>{
+            queryAction(res, err, rows, table)
+        });
     },
 }
 
