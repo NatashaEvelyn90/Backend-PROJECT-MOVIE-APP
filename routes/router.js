@@ -15,7 +15,9 @@ router.get('/api', (req, res)=> {
         'All Movies': `http://localhost:${PORT}/api/movie`, 
         'All Directors': `http://localhost:${PORT}/api/director`,
         'All Actors': `http://localhost:${PORT}/api/actor`,
-        'All Genres': `http://localhost:${PORT}/api/genre`
+        'All Genres': `http://localhost:${PORT}/api/genre`,
+        'All Companies': `http://localhost:${PORT}/api/company`,
+        'All Streaming': `http://localhost:${PORT}/api/streaming`
     })
 }) 
 
@@ -25,6 +27,8 @@ router.use('/api/movie', require('./api/movieRoutes'))
 router.use('/api/director', require('./api/directorRoutes'))
 router.use('/api/actor', require('./api/actorRoutes'))
 router.use('/api/genre', require('./api/genreRoutes'))
+router.use('/api/company', require('./api/companyRoutes'))
+router.use('/api/stream', require('./api/streamRoutes'))
 
 
 

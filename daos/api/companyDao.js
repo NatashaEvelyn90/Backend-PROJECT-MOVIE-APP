@@ -1,8 +1,8 @@
 const con = require('../../config/dbconfig')
 const {queryAction} = require('../../helpers/queryAction')
 
-const genreDao = {
-    table: 'genre',
+const companyDao = {
+    table: 'production', //* table is called production but I went with Company for everything
 
     findAll: (res, table) => {
         const sql = `SELECT * FROM ${table};`
@@ -12,15 +12,14 @@ const genreDao = {
         })
     },
 
-    findMoviesByGenre: (res, table, genre) => {
+    findMoviesByProduction: (res, table, production) => {
         const sql = `
-            SELECT m.*, g.genre
+            SELECT m.*, p.production
             FROM movie m
-            JOIN movie_to_genre mg ON m.movie_id = mg.movie_id
-            JOIN genre g ON mg.genre_id = g.genre_id
-            WHERE g.genre = ?;`
+            JOIN production p ON m.production_id = p.production_id
+            WHERE p.production = ?;`
 
-        con.execute(sql, [genre], (err, rows) => {
+        con.execute(sql, [production], (err, rows) => {
             queryAction(res, err, rows, 'movie')
         })
     },
@@ -43,4 +42,4 @@ const genreDao = {
     }
 }
 
-module.exports = genreDao
+module.exports = companyDao

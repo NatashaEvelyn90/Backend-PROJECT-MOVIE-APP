@@ -11,7 +11,7 @@ const con = require('../../config/dbconfig')
 const { queryAction} = require('../../helpers/queryAction')
 
 const movieDao = {
-    table: 'movie',
+    table: 'movie', //? Make sure whenever you are creating your daos, this table has to match the table you are looking/working on.
 
     findAll: (res, table)=> {
         const sql = `

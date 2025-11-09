@@ -12,9 +12,9 @@ router.get('/movies/:id', (req, res)=> {
     dao.findActorMovies(res, dao.table, req.params.id)
 })
 
-//? http://localhost:8064/api/actor/sort = sort by first_name or last_name. Possible img_url but at this time not yet
-router.get('/sort/:sorter', (req, res)=> {
-    dao.sort(res, dao.table, req.params.sorter)
+//? http://localhost:8064/api/actor/sort = sort by actor_id first_name or last_name. Possible img_url but at this time not yet. If error, 404 error will apppear!
+router.get('/sort/:sorter', (req, res, next)=> {
+    dao.sort(res, dao.table, req.params.sorter, next)
 })
 
 //? http://localhost:8064/api/actor/:id  = search by their actor_id
