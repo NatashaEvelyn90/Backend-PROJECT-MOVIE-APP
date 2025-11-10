@@ -17,7 +17,7 @@ router.get('/api', (req, res)=> {
         'All Actors': `http://localhost:${PORT}/api/actor`,
         'All Genres': `http://localhost:${PORT}/api/genre`,
         'All Companies': `http://localhost:${PORT}/api/company`,
-        'All Streaming': `http://localhost:${PORT}/api/streaming`
+        'All Streaming': `http://localhost:${PORT}/api/stream`
     })
 }) 
 

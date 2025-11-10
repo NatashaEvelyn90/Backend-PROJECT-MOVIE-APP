@@ -7,7 +7,7 @@ router.get('/', (req, res)=> {
     dao.findAll(res, dao.table) 
 })
 
-//? http://localhost:8064/api/genre/movies/:production = search productions by typing in the company aka universal
+//? http://localhost:8064/api/company/movies/:production = search productions by typing in the company aka universal
 router.get('/movies/:production', (req, res)=> {
     dao.findMoviesByProduction(res, dao.table, req.params.production)
 })
