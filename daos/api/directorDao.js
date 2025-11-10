@@ -18,9 +18,9 @@ const directorDao = {
         const sql = `
             SELECT m.*, d.first_name, d.last_name
             FROM movie m
-            JOIN movie_to_${table} USING (movie_id)
-            JOIN ${table} d USING (${table}_id)
-            WHERE d.${table}_id = ?;`;
+            JOIN movie_to_director USING (movie_id)
+            JOIN director d USING (director_id)
+            WHERE d.director_id = ?;`;
 
         con.execute(sql, [id], (err, rows) => {
             queryAction(res, err, rows, table)

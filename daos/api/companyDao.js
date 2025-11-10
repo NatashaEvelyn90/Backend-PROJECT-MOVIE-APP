@@ -17,7 +17,7 @@ const companyDao = {
             SELECT m.*, p.production
             FROM movie m
             JOIN production p ON m.production_id = p.production_id
-            WHERE p.production = ?;`
+            WHERE p.production_id = ?;`
 
         con.execute(sql, [production], (err, rows) => {
             queryAction(res, err, rows, 'movie')

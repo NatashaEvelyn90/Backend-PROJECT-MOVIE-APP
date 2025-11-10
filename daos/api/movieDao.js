@@ -2,7 +2,7 @@
 //! MovieDao short summary
 //? findAll: shows all your movies and their info
 //? sort: can sort movies by runtime, gross etc
-//? findByGenre: can sort by genres
+//? findByGenre: can sort by genre name OR genre_id
 //? findById: can sort movies by id number
 
 // #endregion
@@ -90,11 +90,14 @@ module.exports = movieDao
         //     m.movie_id, m.title, m.rating, //? WE
         //     m.runtime, m.nationality, m.yr_released, //? ARE
         //     m.budget, m.gross, m.production_id, //? THE
-        //     m.showing, m.poster, //? DATA!
-        //     GROUP_CONCAT(g.genre SEPARATOR ', ') AS genres //! Group the genre table as genres, separated by comas on a straight row. GROUP_CONCAT cannot be changed as that is a mySQL code
+        //     m.showing, m.poster, //? DATA! All of this actually can be shortened to be m.* which reads movie * and I wouldn't have to type all the title headers!!!!
+        //     GROUP_CONCAT(DISTINCT g.genre SEPARATOR ', ') AS genres //! Group the genre table as genres, separated by comas on a straight row. GROUP_CONCAT cannot be changed as that is a mySQL code. Distinct is basically making sure it is only one keyword? If there are any duplicates, they go bye bye!
+        // GROUP_CONCAT(DISTINCT s.streaming_platform SEPARATOR ', ') AS streaming //! same thing as the above but this is for the streaming platform categories. So there will be no doubles showing up and they will all be in a straight row with commas between them.
         // FROM movie m //! FROM the movie table (but I am also giving it a alias/nickname called "m" so now table wil be called m)
         // LEFT JOIN movie_to_genre mg ON m.movie_id = mg.movie_id //! LEFT JOIN(show all the movies listed) movie_to_genre mg(alias) ON(joining things together) m.movie_id = mg.movie_id. Basically should show all the movies even if it is missng a genre
         // LEFT JOIN genre g ON mg.genre_id = g.genre_id
+        // LEFT JOIN movie_to_streaming ms ON m.movie_id = ms.movie_id
+        // LEFT JOIN streaming_platform s ON ms.streaming_platform_id = s.streaming_platform_id
         // GROUP BY m.movie_id
         // ORDER BY m.movie_id;` //! We are keeping everything in order by the movie_id number. SO it should count from 1 till whatever.;
         
