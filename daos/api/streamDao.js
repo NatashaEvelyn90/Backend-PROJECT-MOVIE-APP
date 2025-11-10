@@ -18,10 +18,10 @@ const streamDao = {
             FROM movie m
             JOIN movie_to_streaming ms ON m.movie_id = ms.movie_id
             JOIN streaming_platform s ON ms.streaming_platform_id =s.streaming_platform_id
-            WHERE s.streaming_platform = ?;`
+            WHERE s.streaming_platform_id = ?;`
 
         con.execute(sql, [stream], (err, rows) => {
-            queryAction(res, err, rows, table)
+            queryAction(res, err, rows, 'movie')
         })
     },
 
