@@ -35,14 +35,6 @@ const movieDao = {
         })    
     },
 
-    sort: (res, table, sorter) => {
-        const sql = `SELECT * FROM ${table} ORDER BY ${sorter};`
-
-        con.execute(sql, (err, rows)=> {
-            queryAction(res, err, rows, table)
-        })
-    },
-
     findByGenre: (res, table, genre) => {
         const sql = `
             SELECT 
@@ -59,25 +51,6 @@ const movieDao = {
             queryAction(res, err, rows, table)
         })
     },
-
-    findById: (res, table, id) => {
-        const sql = `
-            SELECT 
-                m.*,
-                GROUP_CONCAT(DISTINCT g.genre SEPARATOR ', ') AS genres,
-                GROUP_CONCAT(DISTINCT s.streaming_platform SEPARATOR ', ')AS streaming
-            FROM movie m
-            LEFT JOIN movie_to_genre mg ON m.movie_id = mg.movie_id
-            LEFT JOIN genre g ON mg.genre_id = g.genre_id
-            LEFT JOIN movie_to_streaming ms ON m.movie_id = ms.movie_id
-            LEFT JOIN streaming_platform s ON ms.streaming_platform_id = s.streaming_platform_id
-            WHERE m.movie_id = ?
-            GROUP BY m.movie_id;`
-
-        con.execute(sql, [id], (err, rows) => {
-            queryAction(res, err, rows, table)
-        })    
-    }
 };
 
 module.exports = movieDao

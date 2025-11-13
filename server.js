@@ -30,6 +30,9 @@ server.use(cors())
 server.use(express.json())
 server.use(express.urlencoded({ extended: true}))
 
+//TODO STEP 5 set up a View engine
+server.set('view engine', 'ejs') 
+
 //TODO STEP 4.1 Make sure to add this as well
 //? localhost:8064 starting hub. This is stating to use the router.js file
 server.use('/', router)

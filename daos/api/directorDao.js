@@ -5,14 +5,6 @@ const { queryAction} = require('../../helpers/queryAction')
 
 const directorDao = {
     table: 'director',
-
-    findAll: (res, table)=> {
-        const sql = `SELECT * FROM ${table};`
-
-        con.execute(sql, (err, rows) => {
-            queryAction(res, err, rows, table)
-        });
-    },
     
     findDirectorMovies:(res, table, id)=> {
         const sql = `
@@ -25,23 +17,7 @@ const directorDao = {
         con.execute(sql, [id], (err, rows) => {
             queryAction(res, err, rows, table)
         });
-    },
-
-    sort:(res, table, sorter)=> {
-        const sql = `SELECT * FROM ${table} ORDER BY ${sorter};`
-
-        con.execute(sql, (err, rows) => {
-            queryAction(res, err, rows, table)
-        });
-    },
-
-    findById:(res, table, id)=> {
-        const sql = `SELECT * FROM ${table} WHERE ${table}_id = ?;`
-        
-        con.execute(sql, [id], (err, rows) =>{
-            queryAction(res, err, rows, table)
-        });
-    },
+    }
 }
 
 module.exports = directorDao
