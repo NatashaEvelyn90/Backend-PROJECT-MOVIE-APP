@@ -4,6 +4,17 @@ const express = require('express')
 const router = express.Router()
 const PORT = process.env.PORT || 8064
 
+//TODO Step 4: Create a homepage!
+//? Let's create a homepage to set up our ejs files
+
+//? http://localhost:8064
+router.get('/', (req, res)=> {
+    res.render('pages/home', {
+        title: 'The Movie Forms',
+        name: "Crazpicc's Movie Form App!"       
+    })
+}) 
+
 //TODO Step 2: Creating the Root Route(Homepage in a way)
 //? http://localhost:8064/api 
 router.get('/api', (req, res)=> {
@@ -22,13 +33,22 @@ router.get('/api', (req, res)=> {
 }) 
 
 //! This is the import files for your apiRoutes
-//? I believe there is a shorter way for creating this 
-router.use('/api/movie', require('./api/movieRoutes'))
-router.use('/api/director', require('./api/directorRoutes'))
-router.use('/api/actor', require('./api/actorRoutes'))
-router.use('/api/genre', require('./api/genreRoutes'))
-router.use('/api/company', require('./api/companyRoutes'))
-router.use('/api/stream', require('./api/streamRoutes'))
+
+const endpoints = [
+    'movie', 'director', 'actor', 'genre', 'company', 'stream'
+]
+
+endpoints.forEach(endpoint => {
+    router.use(`/api/${endpoint}`, require(`./api/${endpoint}Routes`))
+})
+
+//* Old way to create Endpoints
+// router.use('/api/movie', require('./api/movieRoutes'))
+// router.use('/api/director', require('./api/directorRoutes'))
+// router.use('/api/actor', require('./api/actorRoutes'))
+// router.use('/api/genre', require('./api/genreRoutes'))
+// router.use('/api/company', require('./api/companyRoutes'))
+// router.use('/api/stream', require('./api/streamRoutes'))
 
 
 
