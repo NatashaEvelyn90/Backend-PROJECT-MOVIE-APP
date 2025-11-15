@@ -26,6 +26,11 @@ router.get('/:id', (req, res)=> {
     dao.findById(res, dao.table, req.params.id)
 })
 
+//! http://localhost:8064/api/movie/create
+router.post('/create', (req, res)=> {
+    dao.create(req, res, dao.table)
+}) 
+
 //! Don't forget to export! 
 module.exports = router
 

@@ -1,0 +1,48 @@
+<%- include('../partials/header') %>
+
+<main class="main" id="main">
+    <div class="container">
+        <h2 class="text-center text-capitalize">add a Director below!</h2>
+        <form 
+            action="http://localhost:8064/api/director/create"
+            method="post"
+            class="form" 
+            id="directorForm"
+        >
+        <div class="row mb-3">
+            <div class="col">
+                <label for="first_name" class="form-label">
+                    First Name
+                </label>
+                <input 
+                    type="text" 
+                    id="first_name" 
+                    name="first_name" 
+                    class="form-control">
+            </div>
+        </div>
+
+        
+            <div class="col">
+                <label for="last_name" class="form-label">
+                    Last Name
+                </label>
+                <input 
+                    type="text" 
+                    id="last_name" 
+                    name="last_name" 
+                    class="form-control">
+            </div>
+        
+
+    
+        <button 
+            class="btn btn-primary" 
+            type="submit" 
+            role="button">Add Director</button>
+        </form>
+        <p class="text-end"><a href="/">Return Home</a></p>
+    </div>
+</main>
+
+<%- include('../partials/footer') %>

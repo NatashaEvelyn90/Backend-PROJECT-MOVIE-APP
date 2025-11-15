@@ -1,5 +1,4 @@
 const router = require('express').Router()
-
 const {streamDao: dao} = require('../../daos/dao')
 
 //? http://localhost:8064/api/stream = show full list of streaming platforms

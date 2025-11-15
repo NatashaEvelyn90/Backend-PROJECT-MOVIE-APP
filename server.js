@@ -30,6 +30,7 @@ server.use(cors())
 server.use(express.json())
 server.use(express.urlencoded({ extended: true}))
 
+
 //TODO STEP 5 set up a View engine
 server.set('view engine', 'ejs') 
 

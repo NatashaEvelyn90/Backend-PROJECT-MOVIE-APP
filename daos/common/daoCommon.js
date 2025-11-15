@@ -36,7 +36,7 @@ const daoCommon = {
         )
     },  
 
-    //! This is how you will add more of anything(movies, directors, etc)
+    //! This is how you will add more of anything(movies, directors, etc) POST
     create: (req, res, table) => {
 
         //! request.body =>{} 
@@ -59,7 +59,7 @@ const daoCommon = {
                         
                         console.log(dbres)
                         res.render('pages/success', {
-                            title: 'Success',
+                            title: 'Thank You.',
                             name: 'Success'
                         })
                     } else {
@@ -70,7 +70,7 @@ const daoCommon = {
         }
     },
 
-    //! if we mess up, we can fix our issue 
+    //! if we mess up, we can fix our issue PATCH
     update: (req, res, table) => {
         // first, we would need to check to see if the id is equal to a number. id == number
         if(isNaN(req.params.id)) {

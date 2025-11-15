@@ -1,5 +1,4 @@
 const router = require('express').Router()
-
 const {genreDao: dao} = require('../../daos/dao')
 
 //? http://localhost:8064/api/genre = show full list of Genres
@@ -20,6 +19,11 @@ router.get('/sort/:sorter', (req, res)=> {
 //? http://localhost:8064/api/genre/:id  = sort by id
 router.get('/:id', (req, res)=> {
     dao.findById(res, dao.table, req.params.id)
+})
+
+//! http://localhost:8064/api/genre/create
+router.post('/create', (req, res)=> {
+    dao.create(req, res, dao.table)
 })
 
 module.exports = router 

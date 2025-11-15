@@ -1,13 +1,11 @@
-//TODO Step 1: Import/export your files!!! 
-//? Similar setup to what we did in the sever.js file
 const express = require('express')
 const router = express.Router()
 const PORT = process.env.PORT || 8064
 
-//TODO Step 4: Create a homepage!
-//? Let's create a homepage to set up our ejs files
+//! add your stylesheet
+router.use(express.static ('public'))
 
-//? http://localhost:8064
+//? http://localhost:8064 - Homepage
 router.get('/', (req, res)=> {
     res.render('pages/home', {
         title: 'The Movie Forms',
@@ -15,14 +13,25 @@ router.get('/', (req, res)=> {
     })
 }) 
 
-//TODO Step 2: Creating the Root Route(Homepage in a way)
+const forms = [
+    'Movie', 'Director', 'Actor', 'Genre', 'Company'
+]
+
+//? http://localhost:8064/${forms}-form -Different Form Page routes
+forms.forEach(forms => {
+    router.get(`/${forms}-form`, (req, res)=> {
+        res.render(`pages/${forms}-form`, {
+            title: `${forms} Form`,
+            name: `${forms} Form`
+        })
+    }) 
+})
+
+
 //? http://localhost:8064/api 
 router.get('/api', (req, res)=> {
-    //* This res.send is just for us to test to see if our sever is working. It is not needed but I am keeping in here for future notes
-    // res.send('Movie api')
 
     res.json({
-        //! best to name the link after what the name of the table you have. In this case, we are starting with the "MOVIE" table and then work our way down to the others.
         'All Movies': `http://localhost:${PORT}/api/movie`, 
         'All Directors': `http://localhost:${PORT}/api/director`,
         'All Actors': `http://localhost:${PORT}/api/actor`,
@@ -32,7 +41,7 @@ router.get('/api', (req, res)=> {
     })
 }) 
 
-//! This is the import files for your apiRoutes
+
 
 const endpoints = [
     'movie', 'director', 'actor', 'genre', 'company', 'stream'
@@ -42,23 +51,18 @@ endpoints.forEach(endpoint => {
     router.use(`/api/${endpoint}`, require(`./api/${endpoint}Routes`))
 })
 
-//* Old way to create Endpoints
-// router.use('/api/movie', require('./api/movieRoutes'))
-// router.use('/api/director', require('./api/directorRoutes'))
-// router.use('/api/actor', require('./api/actorRoutes'))
-// router.use('/api/genre', require('./api/genreRoutes'))
-// router.use('/api/company', require('./api/companyRoutes'))
-// router.use('/api/stream', require('./api/streamRoutes'))
-
-
-
-//TODO Step 3: Building an ERROR page 
-//? This is a temporary way to design a 404 page as we have not created and designed an actual one just yet. However later on we should be able to 
 router.use((req, res, next)=> {
     res.status(404)
-    res.send('<h1>This is a 404 ERROR PAGE. There are issues and complications ahead for now. Please turn back.</h1>')
+    .render('pages/error', {
+        title: 'ERROR PAGE',
+        name: 'Error'
+    })
 })
 
-
-//! This must always be at the bottom as we are exporting this file! 
 module.exports = router
+
+
+
+//* Crazpicc's Notes for Router.js
+// #region
+

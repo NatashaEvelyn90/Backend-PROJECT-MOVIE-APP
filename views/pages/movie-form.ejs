@@ -1,0 +1,175 @@
+<%- include('../partials/header') %>
+
+<main class="main" id="main">
+    <div class="container">
+        <h2 class="text-center text-capitalize">add a Movie below!</h2>
+        <form 
+            action="http://localhost:8064/api/movie/create"
+            method="post"
+            class="form" 
+            id="movieForm"
+        >
+            <div class="row mb-3">
+                <div class="col">
+                    <label for="title" class="form-label">
+                        Title of Movie:
+                    </label>
+                    <input 
+                    type="text" 
+                    id="title" 
+                    name="title" 
+                    class="form-control">
+                </div>
+            </div>
+        
+        <p>Please select the rating of the movie:</p>
+        <div class="d-flex justify-content-evenly">
+            <div class="">
+                    <label for="rating" class="form-label">
+                        NR
+                    </label>
+                    <input 
+                        type="radio" 
+                        id="rating" 
+                        name="rating" 
+                        class="">
+            </div>
+
+            <div class="">
+                    <label for="rating" class="form-label">
+                        G
+                    </label>
+                    <input 
+                        type="radio" 
+                        id="rating" 
+                        name="rating" 
+                        class="">
+            </div>        
+
+            <div class="">
+                <label for="rating" class="form-label">
+                    PG
+                </label>
+                <input 
+                    type="radio" 
+                    id="rating" 
+                    name="rating" 
+                    class="">
+            </div>
+            
+            <div class="">
+                <label for="rating" class="form-label">
+                    PG-13
+                </label>
+                <input 
+                    type="radio" 
+                    id="rating" 
+                    name="rating" 
+                    class="">
+            </div>
+
+            <div class="">
+                <label for="rating" class="form-label">
+                    R
+                </label>
+                <input 
+                    type="radio" 
+                    id="rating" 
+                    name="rating" 
+                    class="">    
+            </div>
+        </div>
+            
+                        
+            <div class="col">
+                <label for="runtime" class="form-label">
+                    Runtime:
+                </label>
+                <input 
+                    type="text" 
+                    id="runtime" 
+                    name="runtime" 
+                    class="form-control">
+            </div>
+
+            <div class="col">
+                <label for="nationality" class="form-label">
+                    Nationality:
+                </label>
+                <input 
+                    type="text" 
+                    id="nationality" 
+                    name="nationality" 
+                    class="form-control">
+            </div>
+
+            <div class="col">
+                <label for="yr_released" class="form-label">
+                    Year Released:
+                </label>
+                <input 
+                    type="text" 
+                    id="yr_released" 
+                    name="yr_released" 
+                    class="form-control">
+            </div>
+
+            <div class="col">
+                <label for="budget" class="form-label">
+                    Budget:
+                </label>
+                <input 
+                    type="text" 
+                    id="budget" 
+                    name="budget" 
+                    class="form-control">
+            </div>
+
+            <div class="col">
+                <label for="gross" class="form-label">
+                    Gross:
+                </label>
+                <input 
+                    type="text" 
+                    id="gross" 
+                    name="gross" 
+                    class="form-control">
+            </div>
+            <p>Showing:</p>
+            <div class="d-flex">
+                <div class="col">
+                    <label for="showing" class="form-label">
+                        Direct-To-TV
+                    </label>
+                    <input 
+                        type="radio" 
+                        id="showing" 
+                        name="showing" 
+                        class="">
+                </div>
+
+                <div class="col">
+                    <label for="showing" class="form-label">
+                        Theater
+                    </label>
+                    <input 
+                        type="radio" 
+                        id="showing" 
+                        name="showing" 
+                        class="">
+                </div>
+            </div>
+            
+        
+
+    
+        <button 
+            class="btn btn-primary" 
+            type="submit" 
+            role="button">Add Movie</button>
+        </form>
+        <p class="text-end"><a href="/">Return Home</a></p>
+    </div>
+</main>
+
+<%- include('../partials/footer') %>

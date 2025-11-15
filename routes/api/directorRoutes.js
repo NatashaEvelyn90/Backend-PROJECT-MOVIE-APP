@@ -1,6 +1,5 @@
 //! This is a shortcut way of doing the usual setup! It merges them both together into one!
 const router = require('express').Router()
-
 const {directorDao: dao} = require('../../daos/dao')
 
 //? http://localhost:8064/api/director = shows a full list of all the directors
@@ -21,6 +20,11 @@ router.get('/sort/:sorter', (req, res)=> {
 //? http://localhost:8064/api/director/:id  = search by their director_id
 router.get('/:id', (req, res)=> {
     dao.findById(res, dao.table, req.params.id)
+})
+
+//! http://localhost:8064/api/director/create
+router.post('/create', (req, res)=> {
+    dao.create(req, res, dao.table)
 })
 
 module.exports = router 

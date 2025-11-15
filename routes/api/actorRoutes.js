@@ -1,6 +1,6 @@
 const router = require('express').Router()
-
 const {actorDao: dao} = require('../../daos/dao')
+
 
 //? http://localhost:8064/api/actor = Full list of Actors
 router.get('/', (req, res)=> {
