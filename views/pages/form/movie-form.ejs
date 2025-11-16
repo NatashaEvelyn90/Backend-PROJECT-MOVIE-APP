@@ -1,4 +1,4 @@
-<%- include('../partials/header') %>
+<%- include('../../partials/header') %>
 
 <main class="main" id="main">
     <div class="container">
@@ -18,7 +18,7 @@
                     type="text" 
                     id="title" 
                     name="title" 
-                    class="form-control">
+                    class="form-control" required>
                 </div>
             </div>
         
@@ -32,7 +32,9 @@
                         type="radio" 
                         id="rating" 
                         name="rating" 
+                        value="NR" 
                         class="">
+                        <!--! the value option is mandatory in radio and checkbox buttons so that it can match the data from your SQL  -->
             </div>
 
             <div class="">
@@ -43,6 +45,7 @@
                         type="radio" 
                         id="rating" 
                         name="rating" 
+                        value="G"
                         class="">
             </div>        
 
@@ -54,6 +57,7 @@
                     type="radio" 
                     id="rating" 
                     name="rating" 
+                    value="PG"
                     class="">
             </div>
             
@@ -64,7 +68,8 @@
                 <input 
                     type="radio" 
                     id="rating" 
-                    name="rating" 
+                    name="rating"
+                    value="PG-13" 
                     class="">
             </div>
 
@@ -76,31 +81,33 @@
                     type="radio" 
                     id="rating" 
                     name="rating" 
+                    value="R"
                     class="">    
             </div>
         </div>
             
                         
             <div class="col">
-                <label for="runtime" class="form-label">
+                <label for="runtime" class="form-label" >
                     Runtime:
                 </label>
                 <input 
                     type="text" 
                     id="runtime" 
                     name="runtime" 
-                    class="form-control">
+                    step="1"
+                    class="form-control" required>
             </div>
 
             <div class="col">
-                <label for="nationality" class="form-label">
+                <label for="nationality" class="form-label" maxlength="3">
                     Nationality:
                 </label>
                 <input 
                     type="text" 
                     id="nationality" 
                     name="nationality" 
-                    class="form-control">
+                    class="form-control" required>
             </div>
 
             <div class="col">
@@ -111,7 +118,8 @@
                     type="text" 
                     id="yr_released" 
                     name="yr_released" 
-                    class="form-control">
+                    maxlength="4"
+                    class="form-control" required>
             </div>
 
             <div class="col">
@@ -119,9 +127,10 @@
                     Budget:
                 </label>
                 <input 
-                    type="text" 
+                    type="number" 
                     id="budget" 
                     name="budget" 
+                    min="0"
                     class="form-control">
             </div>
 
@@ -130,11 +139,13 @@
                     Gross:
                 </label>
                 <input 
-                    type="text" 
+                    type="number" 
                     id="gross" 
                     name="gross" 
+                    min="0"
                     class="form-control">
             </div>
+
             <p>Showing:</p>
             <div class="d-flex">
                 <div class="col">
@@ -144,7 +155,8 @@
                     <input 
                         type="radio" 
                         id="showing" 
-                        name="showing" 
+                        name="showing"
+                        value="direct-to-tv" 
                         class="">
                 </div>
 
@@ -156,11 +168,12 @@
                         type="radio" 
                         id="showing" 
                         name="showing" 
+                        value="theater"
                         class="">
                 </div>
             </div>
             
-        
+            
 
     
         <button 
@@ -172,4 +185,10 @@
     </div>
 </main>
 
-<%- include('../partials/footer') %>
+<%- include('../../partials/footer') %>
+
+<!--* Crazpicc's notes  -->
+
+<!--! When you go ahead and submit the form, it submits the movie title, rating, runtime, nationality, yr_released, budget, gross and showing options.  The rest that need to be added and fixed are the production_id and what production company it is, adding a poster/image and getting the actors and directors.   -->
+
+<!--*  -->

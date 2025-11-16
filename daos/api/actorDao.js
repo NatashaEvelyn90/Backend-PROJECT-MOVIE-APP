@@ -22,14 +22,6 @@ module.exports = actorDao
 
 //* Crazpicc's Personal Notes
 
-// findAll: (res, table)=> {
-//         const sql = `SELECT * FROM ${table};` //! SELECT ALL FROM ${Actor}; 
-        
-//         con.execute(sql, (err, rows) => {
-//             queryAction(res, err, rows, table)
-//         });
-//     },
-
 // findActorMovies:(res, table, id)=> {
 //         const sql = `
 //             SELECT m.*, a.first_name, a.last_name //! SELECT ALL movie header columns, actors first name and last name

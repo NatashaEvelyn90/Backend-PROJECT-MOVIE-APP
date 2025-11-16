@@ -1,9 +1,7 @@
 // #region
 //! MovieDao short summary
 //? findAll: shows all your movies and their info
-//? sort: can sort movies by runtime, gross etc
 //? findByGenre: can sort by genre name OR genre_id
-//? findById: can sort movies by id number
 
 // #endregion
 
@@ -86,22 +84,6 @@ module.exports = movieDao
 
     // #endregion 
 
-        // ! sort
-    // #region
-
-        //? sorts allows you to sort based on the column you choose — like title, runtime, or year released. So whenever you type the URL it would be something like so (example: /api/movie/sort/title). *title is the sorter
-        //? ORDER BY will keep it in whatever order it will be sorted by. 
-
-    //     sort: (res, table, sorter) => { 
-    //     const sql = `SELECT * FROM ${table} ORDER BY ${sorter};` //* SELECT (all*) FROM the ${Movie table}. Make sure to ORDER it BY ${title, runtime, etc}
-
-    //     con.execute(sql, (err, rows)=> { //* con = auto login to SQL, .execute(sql)= run the code I worte. (err, rows)= show me if something went wrong, give me the results.
-    //         queryAction(res, err, rows, table) //* Displays our helper file
-    //     })
-    // },
-
-    // #endregion 
-
         //! findByGenre 
     // #region
     
@@ -109,11 +91,3 @@ module.exports = movieDao
         //? You can search by the genre category OR by the genre_id (example: /api/movie/genre/3 OR /api/movie/genre/comedy).
 
     // #endregion
-
-        //! findById
-    // #region 
-
-        //? findById uses a single movie by its unique ID. (Example route: /api/movie/5)
-        //? The question mark (?) is a placeholder that safely inserts the movie ID using an array value.
-
-    // #endregion 

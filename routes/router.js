@@ -20,7 +20,7 @@ const forms = [
 //? http://localhost:8064/${forms}-form -Different Form Page routes
 forms.forEach(forms => {
     router.get(`/${forms}-form`, (req, res)=> {
-        res.render(`pages/${forms}-form`, {
+        res.render(`pages/form/${forms}-form`, {
             title: `${forms} Form`,
             name: `${forms} Form`
         })
@@ -41,8 +41,6 @@ router.get('/api', (req, res)=> {
     })
 }) 
 
-
-
 const endpoints = [
     'movie', 'director', 'actor', 'genre', 'company', 'stream'
 ]
@@ -51,6 +49,8 @@ endpoints.forEach(endpoint => {
     router.use(`/api/${endpoint}`, require(`./api/${endpoint}Routes`))
 })
 
+
+//! error page  
 router.use((req, res, next)=> {
     res.status(404)
     .render('pages/error', {

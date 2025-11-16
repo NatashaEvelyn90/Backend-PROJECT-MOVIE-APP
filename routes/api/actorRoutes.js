@@ -22,9 +22,19 @@ router.get('/:id', (req, res)=> {
     dao.findById(res, dao.table, req.params.id)
 })
 
-//! http://localhost:8064/api/actor/create
+//TODO http://localhost:8064/api/actor/create
 router.post('/create', (req, res)=> {
     dao.create(req, res, dao.table)
 }) 
+
+//TODO http://localhost:8064/api/actor/update 
+router.patch('/update/:id', (req, res)=> {
+    dao.update(req, res, dao.table)
+})
+
+//! http://localhost:8064/api/actor/delete 
+router.delete('/delete/:id', (req, res)=> {
+    dao.delete(res, dao.table, req.params.id)
+})
 
 module.exports = router 

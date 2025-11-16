@@ -1,35 +1,37 @@
-<%- include('../partials/header') %>
+<%- include('../../partials/header') %>
 
 <main class="main" id="main">
     <div class="container">
-        <h2 class="text-center text-capitalize">Know of a Company? Add it below!</h2>
+        <h2 class="text-center text-capitalize">Know of any genre's missing? Add some!</h2>
         <form 
-            action="http://localhost:8064/api/company/create"
+            action="http://localhost:8064/api/genre/create"
             method="post"
             class="form" 
-            id="companyForm"
+            id="genreForm"
         >
         <div class="row mb-3">
             <div class="col">
-                <label for="production" class="form-label">
-                    Name of Company:
+                <label for="genre" class="form-label">
+                    Genre:
                 </label>
                 <input 
                     type="text" 
-                    id="production" 
-                    name="production" 
+                    id="genre" 
+                    name="genre" 
                     class="form-control">
             </div>
         </div>
-
     
+        <p><strong>Current List:</strong></p>
+        <p></p>
+        
         <button 
             class="btn btn-primary" 
             type="submit" 
-            role="button">Add Company</button>
+            role="button">Add Genre</button>
         </form>
         <p class="text-end"><a href="/">Return Home</a></p>
     </div>
 </main>
 
-<%- include('../partials/footer') %>
+<%- include('../../partials/footer') %>
